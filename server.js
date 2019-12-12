@@ -1,5 +1,13 @@
-const AWS = require('aws-sdk');
-var multer  =  require('multer'); // Handle multi-part form data
+// Read in environment variables
+const  {
+  BUCKET_NAME,
+  AWS_REGION,
+  AWS_SECRET_ACCESS_KEY,
+  AWS_ACCESS_KEY_ID,
+  PORT
+} = require('./config');
+
+var multer  =  require('multer');
 var multerS3 = require('multer-s3')
 const express = require('express');
 var cors = require('cors');
@@ -8,17 +16,9 @@ var cors = require('cors');
 const app = express();
 app.use(cors()) // Enable CORS
 
-// S3 Bucket
-const BUCKET_NAME = 'parks-avid-us-east-1';
-
 // Configure the AWS environment.
-AWS.config.loadFromPath(__dirname + '/config.json');
-
-// Actually it is bad practice to save the keys here directly.
-// Instead, should et up AWS S3 access using environment variables:
-// accesKeyId: process.env.AWS_ACCESS_KEY,
-// secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-// ... then run app with AWS_ACCESSKEY=<YOURKEY> SECRET_ACCESS_KEY=<YOURKEY> node app.js
+const AWS = require('aws-sdk'); // Automatically reads credentials from env vars
+AWS.config.update({region: AWS_REGION});
 const s3 = new AWS.S3();
 
 // First list all buckets
@@ -103,6 +103,6 @@ app.get('/api/presigned', function(req, res) {
 // ------------ Server ---------------------
 
 // Start server
-app.listen(3000,function(){
-    console.log("Working on port 3000");
+app.listen(PORT, function(){
+    console.log("Working on port", PORT);
 });
