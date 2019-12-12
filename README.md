@@ -1,29 +1,32 @@
-# test
+# S3 upload testing
 
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Config.json file will have the access credentials for the AWS user.
 
-### Compiles and minifies for production
+## Start application
+Start API server on port 3000:
+
+    node server.js
+
+Run Vue app on port 8080:
+
+    npm run serve
+
+Then open browser at http://localhost:8080.
+
+## Compiles and minifies for production
 ```
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
+## Lints and fixes files
 ```
 npm run lint
 ```
 
-### Customize configuration
+## Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
