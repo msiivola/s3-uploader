@@ -1,0 +1,12 @@
+node_modules
+src
+public
+Dockerfile*
+docker-compose*
+.dockerignore
+.git
+.gitignore
+.env*
+babel.config.js
+README.md
+TODO.txt

@@ -5,18 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "start_local": "node -r dotenv/config server.js",
-    "start": "node server.js"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "aws-sdk": "^2.588.0",
     "axios": "^0.19.0",
     "core-js": "^2.6.11",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "multer": "^1.4.2",
-    "multer-s3": "^2.9.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -24,7 +17,6 @@
     "@vue/cli-plugin-eslint": "^3.12.1",
     "@vue/cli-service": "^3.12.1",
     "babel-eslint": "^10.0.1",
-    "dotenv": "^8.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.6.10"

@@ -21,10 +21,11 @@ Run Vue app on port 8080:
 
 Follow the instructions after the above command for what address to open in the browser.
 
-## Compiles and minifies Vue code for production
-```
-npm run build
-```
+## Build for production
+
+    npm run build
+
+This creates a **dist** folder for the Vue app.
 
 ## Lints and fixes files
 ```
