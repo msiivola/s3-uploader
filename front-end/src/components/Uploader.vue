@@ -46,7 +46,7 @@ export default {
 
       var self = this;
       // Post data using axios
-      axios.post('http://localhost:3000/api/upload',
+      axios.post('http://localhost:8080/api/upload',
         formData,
         {
           headers: {

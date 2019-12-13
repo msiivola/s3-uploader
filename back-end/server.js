@@ -1,11 +1,11 @@
 var multer  =  require('multer');
 var multerS3 = require('multer-s3')
 const express = require('express');
-//var cors = require('cors');
+// var cors = require('cors');
 
 // Set up the Express app
 const app = express();
-//app.use(cors()) // Enable CORS
+// app.use(cors()) // Enable CORS
 
 // Get environment variables
 const  {
@@ -18,12 +18,12 @@ const  {
 
 // A quick test to see if we have env vars
 if (typeof BUCKET_NAME === 'undefined') {
-  console.log("Error: environment variables not defined");
+  console.log("Error: environment variables not defined. Use 'npm run start_local instead.");
   return;
 }
 
 // Serve static files for the Vue app
-app.use(express.static('dist'));
+// app.use(express.static('dist'));
 
 // Configure the AWS environment.
 const AWS = require('aws-sdk'); // Automatically reads credentials from env vars

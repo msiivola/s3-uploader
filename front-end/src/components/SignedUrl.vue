@@ -24,7 +24,7 @@ export default {
     getUrl() {
       console.log('get URL!');
       var self = this;
-      axios.get('http://localhost:3000/api/presigned')
+      axios.get('http://localhost:8080/api/presigned')
         .then(function(res) {
           self.url = res.data.url;
           self.generated = true;

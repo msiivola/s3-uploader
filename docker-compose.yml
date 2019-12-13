@@ -1,25 +1,30 @@
 version: '3.2'
 
 services:
+  app:
+    build:
+      context: ./front-end/.
+    ports:
+      - 3000:80
   s3-uploader:
     build:
-      context: ./
+      context: ./back-end/.
     environment:
       - BUCKET_NAME=${BUCKET_NAME}
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - AWS_REGION=${AWS_REGION}
-      - PORT=${PORT}
+      - PORT=3000
     ports:
-      - ${PORT}:${PORT}
+      - 3001:3000
     restart: on-failure
-#   nginx:
-#     image: nginx:latest
-#     ports:
-#       - "8080:8080"
-#     volumes: 
-#       - ./avid-frontend/build:/srv/www/static
-#       - ./default.conf:/etc/nginx/conf.d/default.conf
-#     depends_on:
-#       - avid-frontend
-  
+  nginxxx:
+    image: nginx:latest
+    ports:
+      - 8080:8080
+    volumes: 
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      # - ./avid-frontend/build:/srv/www/static
+    depends_on:
+      - app
+      - s3-uploader
