@@ -26,7 +26,8 @@ export default {
   data() {
     return {
       userFile: '',
-      statusMsg: ""
+      statusMsg: "",
+      api_url: process.env.VUE_APP_API_URL
     }
   },
   methods: {
@@ -38,6 +39,7 @@ export default {
     },
     submitFile() {
       this.statusMsg = "Uploading ... "
+      console.log('api_url is', this.api_url);
       // Implement a FormData object, supported by modern browsers
       let formData = new FormData();
       // Append the file to FormData.
@@ -46,7 +48,7 @@ export default {
 
       var self = this;
       // Post data using axios
-      axios.post('http://localhost:8080/api/upload',
+      axios.post(this.api_url + '/upload',
         formData,
         {
           headers: {

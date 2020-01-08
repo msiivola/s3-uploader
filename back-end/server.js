@@ -89,6 +89,16 @@ var upload = multer({
 // });
 
 // Upload files to S3
+app.get('/api', function(req, res) {
+  res.json({
+    version: 1,
+    endpoints: {
+      upload: 'upload a file',
+      presigned: 'Get presigned URL (this is for testing only'
+    }
+  })
+});
+
 app.post('/api/upload',function(req,res){
     console.log('[api/upload]');
     upload(req, res, function(err) {

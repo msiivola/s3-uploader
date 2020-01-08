@@ -17,14 +17,15 @@ export default {
   data() {
     return {
       url: "",
-      generated: false
+      generated: false,
+      api_url: process.env.API_URL
     }
   },
   methods: {
     getUrl() {
       console.log('get URL!');
       var self = this;
-      axios.get('http://localhost:8080/api/presigned')
+      axios.get(this.api_url + '/presigned')
         .then(function(res) {
           self.url = res.data.url;
           self.generated = true;
